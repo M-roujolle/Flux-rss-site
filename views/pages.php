@@ -24,7 +24,7 @@
         <nav class="navbar navbar-dark bg-navbar fixed-top">
             <div class="container justify-content-between my-0 p-0">
 
-                <a class="navbar-brand" href="index.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
+                <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
                 <button class="navbar-toggler text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <a class="navbar-brand" href="#">Menu</a>
                     <span class="navbar-toggler-icon"></span>
@@ -38,19 +38,12 @@
                     <div class="offcanvas-body bg-navbar">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Allnews</a>
+                                <a class="nav-link active" aria-current="page" href="home.php">Allnews</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="views/indexPageOurProject.php">Actualité</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="views/indexPageContactus.php">Nous Contacter</a>
+                                <a class="nav-link" href="pages.php">Actualité</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Rechercher une espèce" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -58,39 +51,35 @@
     </div>
     <!-- End Navbar -->
 
-
+    <h1 class="text-center title1">Actualité</h1>
 
     <div class="d-flex row justify-content-between m-0 p-0">
         <?php
         $rss_link = "https://www.01net.com/rss/info/flux-rss/flux-toutes-les-actualites/";
         $rss_load = simplexml_load_file($rss_link);
         foreach ($rss_load->channel->item as $item) { ?>
-            <div class="my-3">
-                <div class="card " style="width: 18rem;">
-                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
-                    </div>
+            <div class="card bg-container my-3" style="width: 18rem;">
+                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                <div class="card-body">
+                    <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                    <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
                 </div>
             </div>
         <?php }; ?>
     </div>
 
-
     <!-- Footer -->
     <footer>
         <ul class="list-inline text-center">
-            <li class="list-inline-item"><a href="index.php" class="text-decoration-none text-white">Accueil</a></li>
-            <li class="list-inline-item"><a href="./views/indexPageContactus.php" class="text-decoration-none text-white">Nous contacter</a></li>
+            <li class="list-inline-item"><a href="home.php" class="text-decoration-none text-white">Accueil</a></li>
             <li class="list-inline-item"><a href="#" class="text-decoration-none text-white">Politique de confidentialité</a></li>
         </ul>
         <p class="text-center text-white"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company Allnews© 2021</p>
     </footer>
     <!-- Footer end -->
 
-    <script src="./assets/js/script.js"></script>
+    <script src="../assets/script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!-- Footer script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

@@ -1,3 +1,9 @@
+<?php
+
+require_once "../controllers/home-controller.php";
+
+?>
+
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -20,11 +26,11 @@
 <body>
 
     <!-- Navbar -->
-    <div class="container">
-        <nav class="navbar navbar-dark bg-navbar fixed-top">
+    <div class="container m-0 p-0">
+        <nav class="navbar navbar-dark bg-transparent fixed-top">
             <div class="container justify-content-between my-0 p-0">
 
-                <a class="navbar-brand" href="index.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
+                <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
                 <button class="navbar-toggler text-start" type="button" data-bs-toggle="offcanvas" data-bs-target="#offcanvasNavbar" aria-controls="offcanvasNavbar">
                     <a class="navbar-brand" href="#">Menu</a>
                     <span class="navbar-toggler-icon"></span>
@@ -38,19 +44,12 @@
                     <div class="offcanvas-body bg-navbar">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="index.php">Allnews</a>
+                                <a class="nav-link active" aria-current="page" href="home.php">Allnews</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="views/indexPageOurProject.php">Actualité</a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="views/indexPageContactus.php">Nous Contacter</a>
+                                <a class="nav-link" href="pages.php">Actualité</a>
                             </li>
                         </ul>
-                        <form class="d-flex">
-                            <input class="form-control me-2" type="search" placeholder="Rechercher une espèce" aria-label="Search">
-                            <button class="btn btn-outline-light" type="submit"><i class="bi bi-search"></i></button>
-                        </form>
                     </div>
                 </div>
             </div>
@@ -60,38 +59,45 @@
 
 
 
-    <div class="text-center">
-        <label for="checkbox" class="pt-3">Smartphone</label>
-        <input value="1" id="checkbox1" type="checkbox" name="checkbox1">
+    <form class="text-center checkbox m-0 p-0">
+        <div>
+            <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
+            <input value="1" id="checkbox1" type="checkbox" name="checkbox1">
+        </div>
+        <div>
+            <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
+            <input value="2" id="checkbox2" type="checkbox" name="checkbox2">
+        </div>
+        <div>
+            <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
+            <input value="3" id="checkbox3" type="checkbox" name="checkbox3">
+        </div>
+        <div>
+            <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
+            <input value="4" id="checkbox4" type="checkbox" name="checkbox4">
+        </div>
+        <div>
+            <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
+            <input value="5" id="checkbox5" type="checkbox" name="checkbox5">
+        </div>
+        <div class="button">
+            <button type="submit" class="btn btn-success" value="Connexion" name="connexion">Connexion</button>
+        </div>
+    </form>
 
-        <label for="checkbox" class="pt-3">Tablette</label>
-        <input value="2" id="checkbox2" type="checkbox" name="checkbox2">
-
-        <label for="checkbox" class="pt-3">Pc portable</label>
-        <input value="3" id="checkbox3" type="checkbox" name="checkbox3">
-
-        <label for="checkbox" class="pt-3">Photo</label>
-        <input value="4" id="checkbox4" type="checkbox" name="checkbox4">
-
-        <label for="checkbox" class="pt-3">Vidéo</label>
-        <input value="5" id="checkbox5" type="checkbox" name="checkbox5">
-    </div>
-
-    <input class="mt-5 btn-success" type="submit" value="Connexion" name="connexion">
 
 
     <!-- Footer -->
     <footer>
         <ul class="list-inline text-center">
-            <li class="list-inline-item"><a href="index.php" class="text-decoration-none text-white">Accueil</a></li>
-            <li class="list-inline-item"><a href="./views/indexPageContactus.php" class="text-decoration-none text-white">Nous contacter</a></li>
+            <li class="list-inline-item"><a href="home.php" class="text-decoration-none text-white">Accueil</a></li>
             <li class="list-inline-item"><a href="#" class="text-decoration-none text-white">Politique de confidentialité</a></li>
         </ul>
         <p class="text-center text-white"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company Allnews© 2021</p>
     </footer>
     <!-- Footer end -->
 
-    <script src="./assets/js/script.js"></script>
+    <script src="../assets/script/script.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!-- Footer script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>

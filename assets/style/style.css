@@ -17,8 +17,8 @@ body:before {
     height: 100%;
     width: 100%;
     background-image:
-        linear-gradient(rgba(104, 104, 171, 0.3),
-            rgba(104, 104, 171, 0.5));
+        linear-gradient(rgba(104, 104, 171, 0.8),
+            rgba(104, 104, 171, 0.9));
     background-size: cover;
     z-index: -1;
     /* Keep the background behind the content */
@@ -64,7 +64,7 @@ footer {
 }
 
 .bg-container {
-    background-color: #42474b9c;
+    background-color: #ffffffa1;
 }
 
 .bg-navbar {
