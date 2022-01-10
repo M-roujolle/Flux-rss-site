@@ -59,31 +59,35 @@ require_once "../controllers/home-controller.php";
 
 
 
-    <form class="text-center checkbox m-0 p-0">
+    <form class="text-center checkbox m-0 p-0" method="POST">
         <div>
             <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
-            <input value="1" id="checkbox1" type="checkbox" name="checkbox1">
+            <input value="1" id="checkbox1" type="checkbox" name="checkbox[]">
         </div>
         <div>
             <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
-            <input value="2" id="checkbox2" type="checkbox" name="checkbox2">
+            <input value="2" id="checkbox2" type="checkbox" name="checkbox[]">
         </div>
         <div>
             <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
-            <input value="3" id="checkbox3" type="checkbox" name="checkbox3">
+            <input value="3" id="checkbox3" type="checkbox" name="checkbox[]">
         </div>
         <div>
             <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
-            <input value="4" id="checkbox4" type="checkbox" name="checkbox4">
+            <input value="4" id="checkbox4" type="checkbox" name="checkbox[]">
         </div>
         <div>
             <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
-            <input value="5" id="checkbox5" type="checkbox" name="checkbox5">
+            <input value="5" id="checkbox5" type="checkbox" name="checkbox[]">
         </div>
         <div class="button">
-            <button type="submit" class="btn btn-success" value="Connexion" name="connexion">Connexion</button>
+            <input type="submit" class="btn btn-success" value="Connexion" name="connexion">
         </div>
     </form>
+    <div>
+        <p class="text-white"><?= $error ?></p>
+    </div>
+
 
 
 
