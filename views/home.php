@@ -1,9 +1,3 @@
-<?php
-
-require_once "../controllers/home-controller.php";
-
-?>
-
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -26,8 +20,8 @@ require_once "../controllers/home-controller.php";
 <body>
 
     <!-- Navbar -->
-    <div class="container m-0 p-0">
-        <nav class="navbar navbar-dark bg-transparent fixed-top">
+    <div class="container">
+        <nav class="navbar navbar-dark bg-navbar fixed-top">
             <div class="container justify-content-between my-0 p-0">
 
                 <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
@@ -47,7 +41,7 @@ require_once "../controllers/home-controller.php";
                                 <a class="nav-link active" aria-current="page" href="home.php">Allnews</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="pages.php">Actualité</a>
+                                <a class="nav-link" href="parameters.php">Paramétre</a>
                             </li>
                         </ul>
                     </div>
@@ -57,39 +51,68 @@ require_once "../controllers/home-controller.php";
     </div>
     <!-- End Navbar -->
 
+    <h1 class="text-center title1">Actualité</h1>
+
+    <div class="d-flex row justify-content-between m-0 p-0">
+        <?php
+        $rss_link1 = $_COOKIE["flux1"];
+        $rss_link2 = $_COOKIE["flux2"];
+        $rss_link3 = $_COOKIE["flux3"];
+        $rss_load1 = simplexml_load_file($rss_link1);
+        $rss_load2 = simplexml_load_file($rss_link2);
+        $rss_load3 = simplexml_load_file($rss_link3);
+
+        $articles1 = 0;
+        $articles2 = 0;
+        $articles3 = 0;
+
+        foreach ($rss_load1->channel->item as $item) {
+            if ($articles1 < 2) { ?>
+                <div class="card bg-container my-3" style="width: 18rem;">
+                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
+                    </div>
+                </div>
+        <?php
+                $articles1++;
+            };
+        } ?>
 
 
-    <form class="text-center checkbox m-0 p-0" method="POST">
-        <div>
-            <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
-            <input value="1" id="checkbox1" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
-            <input value="2" id="checkbox2" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
-            <input value="3" id="checkbox3" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
-            <input value="4" id="checkbox4" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
-            <input value="5" id="checkbox5" type="checkbox" name="checkbox[]">
-        </div>
-        <div class="button">
-            <input type="submit" class="btn btn-success" value="Connexion" name="connexion">
-        </div>
-    </form>
-    <div>
-        <p class="text-white"><?= $error ?></p>
+        <?php foreach ($rss_load2->channel->item as $item) {
+            if ($articles2 < 2) { ?>
+                <div class="card bg-container my-3" style="width: 18rem;">
+                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
+                    </div>
+                </div>
+        <?php $articles2++;
+            };
+        } ?>
+        <?php foreach ($rss_load3->channel->item as $item) {
+            if ($articles3 < 2) { ?>
+                <div class="card bg-container my-3" style="width: 18rem;">
+                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
+                    </div>
+                </div>
+        <?php $articles3++;
+            };
+        } ?>
+
+
+
+
     </div>
-
-
-
 
     <!-- Footer -->
     <footer>
