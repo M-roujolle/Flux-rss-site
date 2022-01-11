@@ -55,59 +55,96 @@ require_once "../controllers/home-controller.php";
         </nav>
     </div>
     <!-- End Navbar -->
-
+    $item->pubDate
     <h1 class="text-center title1">Actualité</h1>
-
-    <div class="d-flex row justify-content-between m-0 p-0">
-
-        <?php foreach ($rss_load1->channel->item as $item) {
-            if ($articles1 < $maxArticle) { ?>
-                <div class="card bg-container my-3" style="width: 18rem;">
-                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
-                    </div>
+    <div class="container d-flex justify-content-center my-0">
+        <div id="carouselExampleControls" class="carousel slide w-75" data-bs-ride="carousel">
+            <div class="carousel-inner">
+                <div class="carousel-item active">
+                    <img src="<?= $rss_load1->channel->item->enclosure->attributes() ?>" class="d-block w-100" alt="...">
                 </div>
-        <?php
-                $articles1++;
-            };
-        } ?>
-
-
-        <?php foreach ($rss_load2->channel->item as $item) {
-            if ($articles2 < $maxArticle) { ?>
-                <div class="card bg-container my-3" style="width: 18rem;">
-                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
-                    </div>
+                <div class="carousel-item">
+                    <img src="<?= $rss_load2->channel->item->enclosure->attributes() ?>" class="d-block w-100" alt="...">
                 </div>
-        <?php $articles2++;
-            };
-        } ?>
-
-        <?php foreach ($rss_load3->channel->item as $item) {
-            if ($articles3 < $maxArticle) { ?>
-                <div class="card bg-container my-3" style="width: 18rem;">
-                    <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
-                    <div class="card-body">
-                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                        <p class="card-text"><?= $item->pubDate . "<br>"; ?></p>
-                    </div>
+                <div class="carousel-item">
+                    <img src="<?= $rss_load3->channel->item->enclosure->attributes() ?>" class="d-block w-100" alt="...">
                 </div>
-        <?php $articles3++;
-            };
-        } ?>
+            </div>
+            <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleControls" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="d-flex row justify-content-between m-0 p-0">
+
+            <?php foreach ($rss_load1->channel->item as $item) {
+                if ($articles1 < $maxArticle) { ?>
+                    <div class="card mb-3" style="max-width: 100rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                                    <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php $articles1++;
+                };
+            } ?>
 
 
+            <?php foreach ($rss_load2->channel->item as $item) {
+                if ($articles2 < $maxArticle) { ?>
+                    <div class="card mb-3" style="max-width: 100rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                                    <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php $articles2++;
+                };
+            } ?>
 
-
-
+            <?php foreach ($rss_load3->channel->item as $item) {
+                if ($articles3 < $maxArticle) { ?>
+                    <div class="card mb-3" style="max-width: 100rem;">
+                        <div class="row g-0">
+                            <div class="col-md-4">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                            </div>
+                            <div class="col-md-8">
+                                <div class="card-body">
+                                    <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                                    <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+            <?php $articles3++;
+                };
+            } ?>
+        </div>
     </div>
 
     <!-- Footer -->

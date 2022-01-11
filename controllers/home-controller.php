@@ -1,4 +1,7 @@
 <?php
+setlocale(LC_TIME, "fr_FR.utf8", "French");
+date_default_timezone_set('Europe/Paris');
+
 var_dump($_POST);
 
 if (isset($_COOKIE["flux1"])) {
