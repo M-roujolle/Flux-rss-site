@@ -41,3 +41,8 @@
 //             y: 100
 //         })
 // }
+
+function addDarkmodeWidget() {
+    new Darkmode();
+}
+document.getElementById("mod").addEventListener('click', addDarkmodeWidget);

@@ -1,3 +1,8 @@
+<?php
+
+require_once "../controllers/home-controller.php";
+
+?>
 <!DOCTYPE html>
 <html lang="fr">
 
@@ -54,20 +59,9 @@
     <h1 class="text-center title1">Actualité</h1>
 
     <div class="d-flex row justify-content-between m-0 p-0">
-        <?php
-        $rss_link1 = $_COOKIE["flux1"];
-        $rss_link2 = $_COOKIE["flux2"];
-        $rss_link3 = $_COOKIE["flux3"];
-        $rss_load1 = simplexml_load_file($rss_link1);
-        $rss_load2 = simplexml_load_file($rss_link2);
-        $rss_load3 = simplexml_load_file($rss_link3);
 
-        $articles1 = 0;
-        $articles2 = 0;
-        $articles3 = 0;
-
-        foreach ($rss_load1->channel->item as $item) {
-            if ($articles1 < 2) { ?>
+        <?php foreach ($rss_load1->channel->item as $item) {
+            if ($articles1 < $maxArticle) { ?>
                 <div class="card bg-container my-3" style="width: 18rem;">
                     <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -83,7 +77,7 @@
 
 
         <?php foreach ($rss_load2->channel->item as $item) {
-            if ($articles2 < 2) { ?>
+            if ($articles2 < $maxArticle) { ?>
                 <div class="card bg-container my-3" style="width: 18rem;">
                     <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -95,8 +89,9 @@
         <?php $articles2++;
             };
         } ?>
+
         <?php foreach ($rss_load3->channel->item as $item) {
-            if ($articles3 < 2) { ?>
+            if ($articles3 < $maxArticle) { ?>
                 <div class="card bg-container my-3" style="width: 18rem;">
                     <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
                     <div class="card-body">
@@ -108,6 +103,7 @@
         <?php $articles3++;
             };
         } ?>
+
 
 
 

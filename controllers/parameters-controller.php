@@ -1,5 +1,6 @@
 <?php
 var_dump($_POST);
+$error = "";
 
 $choice = [
     1 => "https://www.01net.com/rss/smartphones/",
@@ -9,16 +10,12 @@ $choice = [
     5 => "https://www.01net.com/rss/tv-video/"
 ];
 
-$valueSelect = [
-    1 => 6,
-    2 => 9,
-    3 => 12
-];
 
-$error = "";
+if (isset($_POST["totalArticles"])) {
+    setcookie("totalArticles", $_POST["totalArticles"]);
+}
 
 if (isset($_POST["checkbox"])) {
-
     if (count($_POST["checkbox"]) == 3) {
         if (isset($_POST["checkbox"][0])) {
             setcookie("flux1", $choice[$_POST["checkbox"][0]]);

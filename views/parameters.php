@@ -58,46 +58,47 @@ require_once "../controllers/parameters-controller.php";
 
 
 
+    <div class="d-flex justify-content-center">
+        <form class="checkbox m-0 p-0" method="POST">
 
-    <form class="text-center checkbox m-0 p-0" method="POST">
+            <div class="form-check form-switch">
+                <input class="form-check-input" type="checkbox" role="switch" id="mod">
+                <label class="form-check-label" for="mod">Dark Mode</label>
+            </div>
 
-        <div class="d-flex justify-content-center form-check form-switch">
-            <input class="form-check-input" type="checkbox" role="switch" id="mod">
-            <label class="form-check-label" for="mod">Dark Mode</label>
-        </div>
-
-        <select class="form-select d-flex justify-content-center m-auto" aria-label="Default select example" style="width: 8rem;">
-            <option selected>Choix</option>
-            <option value="1" name="value1">6</option>
-            <option value="2" name="value2">9</option>
-            <option value="3" name="value3">12</option>
-        </select>
+            <select class="form-select m-auto" aria-label="Default select example" style="width: 8rem;" name="totalArticles">
+                <option selected>Choix</option>
+                <option value="6">6</option>
+                <option value="9">9</option>
+                <option value="12">12</option>
+            </select>
 
 
-        <div>
-            <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
-            <input value="1" id="checkbox1" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
-            <input value="2" id="checkbox2" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
-            <input value="3" id="checkbox3" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
-            <input value="4" id="checkbox4" type="checkbox" name="checkbox[]">
-        </div>
-        <div>
-            <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
-            <input value="5" id="checkbox5" type="checkbox" name="checkbox[]">
-        </div>
-        <div class="button">
-            <input type="submit" class="btn btn-success" value="Validation" name="validation">
-        </div>
-    </form>
+            <div>
+                <input value="1" id="checkbox1" type="checkbox" name="checkbox[]">
+                <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
+            </div>
+            <div>
+                <input value="2" id="checkbox2" type="checkbox" name="checkbox[]">
+                <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
+            </div>
+            <div>
+                <input value="3" id="checkbox3" type="checkbox" name="checkbox[]">
+                <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
+            </div>
+            <div>
+                <input value="4" id="checkbox4" type="checkbox" name="checkbox[]">
+                <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
+            </div>
+            <div>
+                <input value="5" id="checkbox5" type="checkbox" name="checkbox[]">
+                <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
+            </div>
+            <div class="button">
+                <input type="submit" class="btn btn-success" value="Validation" name="validation">
+            </div>
+        </form>
+    </div>
     <div>
         <p class="text-white"><?= $error ?></p>
     </div>
@@ -116,6 +117,7 @@ require_once "../controllers/parameters-controller.php";
     <!-- Footer end -->
 
     <script src="../assets/script/script.js"></script>
+
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
     <!-- Footer script -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
@@ -123,6 +125,7 @@ require_once "../controllers/parameters-controller.php";
     <!-- Bootstrap -->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.5.7/lib/darkmode-js.min.js"></script>
 </body>
 
 
