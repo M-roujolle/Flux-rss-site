@@ -1,8 +1,6 @@
 <?php
-setlocale(LC_TIME, "fr_FR.utf8", "French");
+setlocale(LC_TIME, array('fr_FR.utf8', 'French'));
 date_default_timezone_set('Europe/Paris');
-
-var_dump($_POST);
 
 if (isset($_COOKIE["flux1"])) {
     $rss_link1 = $_COOKIE["flux1"];

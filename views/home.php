@@ -24,6 +24,11 @@ require_once "../controllers/home-controller.php";
 <body>
     <!-- Navbar -->
     <div class="container m-0 p-0">
+        <div class="form-check form-switch ms-auto d-none">
+            <label class="form-check-label ms-3" for="lightSwitch">
+            </label>Dark Mode
+            <input class="form-check-input" type="checkbox" id="lightSwitch" />
+        </div>
         <nav class="navbar navbar-dark bg-dark fixed-top d-none d-lg-block">
             <div class="container justify-content-between my-0 p-0">
                 <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
@@ -33,12 +38,6 @@ require_once "../controllers/home-controller.php";
                             <a class="navbar-brand" href="#">Menu</a>
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                        <div class="form-check form-switch ms-auto mt-3 me-3 d-none">
-                            <label class="form-check-label ms-3" for="lightSwitch">
-
-                            </label>Dark Mode
-                            <input class="form-check-input" type="checkbox" id="lightSwitch" />
-                        </div>
                     </div>
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -62,7 +61,7 @@ require_once "../controllers/home-controller.php";
     </div>
     <!-- End Navbar -->
     <!-- Navbar mobile -->
-    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block">
+    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0">
         <div class="container-fluid">
             <a class="navbar-brand" href="#">Allnews</a>
             <div class="d-flex align-content-end">
@@ -74,8 +73,11 @@ require_once "../controllers/home-controller.php";
     </nav>
     <!-- End Navbar mobile -->
 
-    <h1 class="text-center title1">Actualité</h1>
+    <div class="mt-5">
+        <h1 class="text-center title1 mt-5">Actualité</h1>
+    </div>
     <div class="container d-flex justify-content-center my-0 py-0">
+
         <div id="carouselExampleControls" class="carousel slide w-75 d-none d-lg-block" da ta-bs-ride=" carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">

@@ -29,7 +29,7 @@
             <div class="err">4</div>
             <i class="far fa-question-circle fa-spin"></i>
             <div class="err2">4</div>
-            <div class="msg">Peut-être que cette page a été déplacée? Vous avez été supprimé? Se cache-t-il en quarantaine? N'a jamais existé en premier lieu?<p>Revenir à <a href="#">l'accueil</a> </p>
+            <div class="msg">Peut-être que cette page a été déplacée? Vous avez été supprimé? Se cache-t-il en quarantaine? N'a jamais existé en premier lieu?<p>Revenir à <a href="./index.php">l'accueil</a> </p>
             </div>
         </div>
         <!-- END Content -->
