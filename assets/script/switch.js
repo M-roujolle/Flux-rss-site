@@ -75,9 +75,9 @@
   function getSystemDefaultTheme() {
     const darkThemeMq = window.matchMedia("(prefers-color-scheme: dark)");
     if (darkThemeMq.matches) {
-      return "light";
+      return "dark";
     }
-    return "dark";
+    return "light";
   }
 
   function setup() {
