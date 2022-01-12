@@ -114,16 +114,16 @@ require_once "../controllers/parameters-controller.php";
     </div>
     <!-- End Navbar -->
     <!-- Navbar mobile -->
-    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0">
+    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
         <div class="container-fluid d-flex justify-content-between">
             <div class="d-flex justify-content-evenly align-items-center">
-                <a class="nav-link active" href="parameters.php"><i class="bi bi-tools"></i></a>
-                <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper"></i></i></a>
+                <a class="nav-link active" href="parameters.php"><i class="bi bi-tools sizeIcon"></i></a>
+                <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper sizeIcon"></i></i></a>
             </div>
-            <div class="d-flex justify-content-evenly align-items-center">
-                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
-                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
-                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+            <div class=" d-flex justify-content-evenly align-items-center">
+                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
             </div>
         </div>
         </div>
