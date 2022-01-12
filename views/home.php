@@ -24,7 +24,7 @@ require_once "../controllers/home-controller.php";
 <body>
     <!-- Navbar -->
     <div class="container m-0 p-0">
-        <nav class="navbar navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-dark bg-dark fixed-top d-none d-lg-block">
             <div class="container justify-content-between my-0 p-0">
                 <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
                 <div class="list-inline">
@@ -33,12 +33,12 @@ require_once "../controllers/home-controller.php";
                             <a class="navbar-brand" href="#">Menu</a>
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                    </div>
-                    <div class="form-check form-switch ms-auto mt-3 me-3 list-inline-item">
-                        <label class="form-check-label ms-3" for="lightSwitch">
+                        <div class="form-check form-switch ms-auto mt-3 me-3 d-none">
+                            <label class="form-check-label ms-3" for="lightSwitch">
 
-                        </label>Dark Mode
-                        <input class="form-check-input" type="checkbox" id="lightSwitch" nochecked />
+                            </label>Dark Mode
+                            <input class="form-check-input" type="checkbox" id="lightSwitch" />
+                        </div>
                     </div>
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -49,10 +49,10 @@ require_once "../controllers/home-controller.php";
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="home.php">Allnews</a>
+                                <a class="nav-link active" aria-current="page" href="home.php">Actualité</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="parameters.php">Paramétre</a>
+                                <a class="nav-link active" href="parameters.php">Paramétre</a>
                             </li>
                         </ul>
                     </div>
@@ -61,12 +61,22 @@ require_once "../controllers/home-controller.php";
         </nav>
     </div>
     <!-- End Navbar -->
+    <!-- Navbar mobile -->
+    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Allnews</a>
+            <div class="d-flex align-content-end">
+                <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper"></i></i></a>
+                <a class="nav-link active" href="parameters.php"><i class="bi bi-tools"></i></a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- End Navbar mobile -->
 
-
-    <button type="button" class="btn btn-dark">Dark</button>
     <h1 class="text-center title1">Actualité</h1>
-    <div class="container d-flex justify-content-center my-0">
-        <div id="carouselExampleControls" class="carousel slide w-75" data-bs-ride="carousel">
+    <div class="container d-flex justify-content-center my-0 py-0">
+        <div id="carouselExampleControls" class="carousel slide w-75 d-none d-lg-block" da ta-bs-ride=" carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
                     <img src="<?= $rss_load1->channel->item->enclosure->attributes() ?>" class="d-block w-100" alt="...">
@@ -88,7 +98,7 @@ require_once "../controllers/home-controller.php";
             </button>
         </div>
     </div>
-    <div class="container">
+    <div class="container my-3 pb-5">
         <div class="d-flex row justify-content-between m-0 p-0">
 
             <?php foreach ($rss_load1->channel->item as $item) {
@@ -158,7 +168,7 @@ require_once "../controllers/home-controller.php";
 
 
     <!-- Footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark d-none d-lg-block">
         <div class="list-inline text-center">
             <p class="list-inline-item">Accueil</p>
             <p class="list-inline-item">Politique de confidentialité</p>

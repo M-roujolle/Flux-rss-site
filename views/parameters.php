@@ -27,7 +27,7 @@ require_once "../controllers/parameters-controller.php";
 <body>
     <!-- Navbar -->
     <div class="container m-0 p-0">
-        <nav class="navbar navbar-dark bg-dark fixed-top">
+        <nav class="navbar navbar-dark bg-dark fixed-top d-none d-lg-block">
             <div class="container justify-content-between my-0 p-0">
                 <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
                 <div class="list-inline">
@@ -36,11 +36,6 @@ require_once "../controllers/parameters-controller.php";
                             <a class="navbar-brand" href="#">Menu</a>
                             <span class="navbar-toggler-icon"></span>
                         </button>
-                    </div>
-                    <div class="form-check form-switch ms-auto mt-3 me-3 list-inline-item">
-                        <label class="form-check-label ms-3" for="lightSwitch">
-                        </label>Dark Mode
-                        <input class="form-check-input" type="checkbox" id="lightSwitch" nochecked />
                     </div>
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -51,10 +46,10 @@ require_once "../controllers/parameters-controller.php";
                     <div class="offcanvas-body">
                         <ul class="navbar-nav justify-content-start flex-grow-1 pe-3">
                             <li class="nav-item">
-                                <a class="nav-link active" aria-current="page" href="home.php">Allnews</a>
+                                <a class="nav-link active" aria-current="page" href="home.php">Actualité</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link" href="parameters.php">Paramétre</a>
+                                <a class="nav-link active" href="parameters.php">Paramétre</a>
                             </li>
                         </ul>
                     </div>
@@ -63,13 +58,29 @@ require_once "../controllers/parameters-controller.php";
         </nav>
     </div>
     <!-- End Navbar -->
-
+    <!-- Navbar mobile -->
+    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">Allnews</a>
+            <div class="d-flex align-content-end">
+                <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper"></i></i></a>
+                <a class="nav-link active" href="parameters.php"><i class="bi bi-tools"></i></a>
+            </div>
+        </div>
+        </div>
+    </nav>
+    <!-- End Navbar mobile -->
 
 
     <div class="d-flex justify-content-center">
         <form class="checkbox m-0 p-0" method="POST">
 
+            <div class="form-check form-switch ms-auto mt-3 me-3 list-inline-item">
+                <label class="form-check-label ms-3" for="lightSwitch">
 
+                </label>Dark Mode
+                <input class="form-check-input" type="checkbox" id="lightSwitch" />
+            </div>
 
             <select class="form-select m-auto" style="width: 8rem;" name="totalArticles">
                 <option selected disabled>Choix</option>
@@ -112,13 +123,12 @@ require_once "../controllers/parameters-controller.php";
 
 
     <!-- Footer -->
-    <footer class="bg-dark">
+    <footer class="bg-dark d-none d-lg-block">
         <div class="list-inline text-center">
             <p class="list-inline-item">Accueil</p>
             <p class="list-inline-item">Politique de confidentialité</p>
         </div>
-        <p class="text-center"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company
-            Allnews© 2021</p>
+        <p class="text-center"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company Allnews© 2021</p>
     </footer>
     <!-- Footer end -->
     <script src="../assets/script/script.js"></script>
