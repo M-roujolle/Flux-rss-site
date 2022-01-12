@@ -94,7 +94,16 @@ require_once "../controllers/parameters-controller.php";
                                 <a class="nav-link active" aria-current="page" href="home.php">Actualité</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="parameters.php">Paramétre</a>
+                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                            </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="parameters.php">Paramétres</a>
                             </li>
                         </ul>
                     </div>
@@ -110,6 +119,11 @@ require_once "../controllers/parameters-controller.php";
             <div class="d-flex align-content-end">
                 <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper"></i></i></a>
                 <a class="nav-link active" href="parameters.php"><i class="bi bi-tools"></i></a>
+                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+
+                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+
+                <a class="navbar-brand" href="#"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
             </div>
         </div>
         </div>

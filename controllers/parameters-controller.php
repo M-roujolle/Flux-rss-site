@@ -6,6 +6,13 @@ $choice = [
     4 => "https://www.01net.com/rss/photo/",
     5 => "https://www.01net.com/rss/tv-video/"
 ];
+$fluxName = [
+    1 => "Smartphone",
+    2 => "Tablette",
+    3 => "PC portable",
+    4 => "Photo",
+    5 => "Vidéo",
+];
 if (isset($_POST["validation"])) {
 
     if (isset($_POST["checkbox"])) {
