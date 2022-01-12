@@ -175,9 +175,9 @@ require_once "../controllers/parameters-controller.php";
                     <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper sizeIcon"></i></i></a>
                 </div>
                 <div class=" d-flex justify-content-evenly align-items-center">
-                    <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
-                    <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
-                    <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                 </div>
             </div>
 
