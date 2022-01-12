@@ -13,6 +13,13 @@ $fluxName = [
     4 => "Photo",
     5 => "Vidéo",
 ];
+$fluxMobile = [
+    1 => '<i class="bi bi-phone"></i>',
+    2 => '<i class="bi bi-tablet"></i>',
+    3 => '<i class="bi bi-laptop"></i>',
+    4 => '<i class="bi bi-file-earmark-image"></i>',
+    5 => '<i class="bi bi-camera-reels"></i>',
+];
 if (isset($_POST["validation"])) {
 
     if (isset($_POST["checkbox"])) {
