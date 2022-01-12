@@ -106,7 +106,7 @@ require_once "../controllers/home-controller.php";
                     <div class="card mb-3" style="max-width: 100rem;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -127,7 +127,7 @@ require_once "../controllers/home-controller.php";
                     <div class="card mb-3" style="max-width: 100rem;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
@@ -147,7 +147,7 @@ require_once "../controllers/home-controller.php";
                     <div class="card mb-3" style="max-width: 100rem;">
                         <div class="row g-0">
                             <div class="col-md-4">
-                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top" alt="...">
+                                <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
                             </div>
                             <div class="col-md-8">
                                 <div class="card-body">
