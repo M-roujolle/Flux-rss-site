@@ -72,9 +72,8 @@ require_once "../controllers/parameters-controller.php";
     <!-- End Navbar mobile -->
 
 
-    <div class="d-flex justify-content-center">
+    <div class="d-flex justify-content-center m-0 p-0">
         <form class="checkbox m-0 p-0" method="POST">
-
             <div class="form-check form-switch ms-auto mt-3 me-3 list-inline-item">
                 <label class="form-check-label ms-3" for="lightSwitch">
                 </label>Dark Mode
@@ -89,24 +88,24 @@ require_once "../controllers/parameters-controller.php";
             </select>
 
             <div>
-                <input value="1" id="checkbox1" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && ($_POST["checkbox"][0] == 1 || $_POST["checkbox"][1] == 1 || $_POST["checkbox"][2] == 1)) ? "checked" : (isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[1] ? "checked" : "") ?>>
+                <input value="1" id="checkbox1" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(1, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[1]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[1]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[1]) ? "checked" : "") ?>>
                 <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
             </div>
             <div>
-                <input value="2" id="checkbox2" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && ($_POST["checkbox"][1] == 2 || $_POST["checkbox"][1] == 2 || $_POST["checkbox"][2] == 2)) ? "checked" : (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[2] ? "checked" : "") ?>>
+                <input value="2" id="checkbox2" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(2, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[2]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[2]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[2]) ? "checked" : "") ?>>
                 <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
             </div>
             <div>
-                <input value="3" id="checkbox3" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && ($_POST["checkbox"][2] == 3 || $_POST["checkbox"][1] == 3 || $_POST["checkbox"][2] == 3)) ? "checked" : (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[3] ? "checked" : "") ?>>
+                <input value="3" id="checkbox3" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(3, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[3]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[3]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[3]) ? "checked" : "") ?>>
                 <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
             </div>
             <div>
-                <input value="4" id="checkbox4" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && ($_POST["checkbox"][3] == 4 || $_POST["checkbox"][1] == 4 || $_POST["checkbox"][2] == 4)) ? "checked" : (isset($_COOKIE["flux4"]) && $_COOKIE["flux4"] == $choice[4] ? "checked" : "") ?>>
+                <input value="4" id="checkbox4" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(4, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[4]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[4]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[4]) ? "checked" : "") ?>>
                 <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
             </div>
             <div>
-                <input value="5" id="checkbox5" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && ($_POST["checkbox"][4] == 5 || $_POST["checkbox"][1] == 5 || $_POST["checkbox"][2] == 5)) ? "checked" : (isset($_COOKIE["flux5"]) && $_COOKIE["flux5"] == $choice[5] ? "checked" : "") ?>>
-                <label for="checkbox5" class="pt-3">VidÃ©o <i class="bi bi-camera-video"></i></label>
+                <input value="5" id="checkbox5" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(5, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[5]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[5]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[5]) ? "checked" : "") ?>>
+                <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
             </div>
             <div class="button">
                 <button type="submit" class="btn btn-dark bg-dark" value="Validation" name="validation">Validation</button>
@@ -114,9 +113,8 @@ require_once "../controllers/parameters-controller.php";
         </form>
     </div>
     <div>
-        <p class="text-white"><?= $error ?? "" ?></p>
+        <p class="text-center mb-5 pb-5"><?= $error ?? "" ?></p>
     </div>
-
 
 
 
