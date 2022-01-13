@@ -112,9 +112,6 @@ require_once "../controllers/parameters-controller.php";
                             <li class="nav-item">
                                 <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="parameters.php">Paramétres</a>
-                            </li>
                         </ul>
                     </div>
                 </div>
