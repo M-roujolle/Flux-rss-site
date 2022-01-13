@@ -85,3 +85,26 @@ footer {
         padding-top: 1rem;
     }
 }
+
+@media (min-width: 1200px) {
+    .modal-xlg {
+        width: 90%;
+
+    }
+}
+
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 80%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+
+.article {
+    font-size: x-large;
+}

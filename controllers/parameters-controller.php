@@ -14,11 +14,11 @@ $fluxName = [
     5 => "Vidéo",
 ];
 $fluxMobile = [
-    1 => '<i class="bi bi-phone"></i>',
-    2 => '<i class="bi bi-tablet"></i>',
-    3 => '<i class="bi bi-laptop"></i>',
-    4 => '<i class="bi bi-file-earmark-image"></i>',
-    5 => '<i class="bi bi-camera-reels"></i>',
+    1 => '<i class="bi bi-phone"></i> Smartphone',
+    2 => '<i class="bi bi-tablet-landscape"></i> Tablette',
+    3 => '<i class="bi bi-laptop"></i> PC portable',
+    4 => '<i class="bi bi-file-earmark-image"></i> Photo',
+    5 => '<i class="bi bi-camera-reels"></i> Vidéo',
 ];
 if (isset($_POST["validation"])) {
 

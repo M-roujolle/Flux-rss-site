@@ -25,50 +25,52 @@ require_once "../controllers/parameters-controller.php";
 </head>
 
 <body>
-    <a class="navbar-brand text-center" href="home.php">Allnews</a>
-    <div class="mt-5">
-        <div class="d-flex justify-content-center mt-5 pt-5">
-            <form class="checkbox mt-5 p-0" method="POST">
-                <div class="form-check form-switch ms-auto mt-5 me-3 list-inline-item">
-                    <label class="form-check-label ms-3" for="lightSwitch">
-                    </label>Dark Mode
-                    <input class="form-check-input" type="checkbox" id="lightSwitch" />
-                </div>
+    <div>
+        <a class="navbar-brand text-center" href="home.php">Allnews</a>
+        <div class="mt-5">
+            <div class="d-flex justify-content-center mt-5 pt-5">
+                <form class="checkbox mt-5 p-0" method="POST">
+                    <div class="form-check form-switch ms-auto mt-5 me-3 list-inline-item">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                        </label>Dark Mode
+                        <input class="form-check-input" type="checkbox" id="lightSwitch" />
+                    </div>
 
-                <select class="form-select m-auto" style="width: 8rem;" name="totalArticles">
-                    <option selected disabled>Choix</option>
-                    <option value="6" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 6) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 6) ? "selected" : " ") ?>>6</option>
-                    <option value="9" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 9) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 9) ? "selected" : " ") ?>>9</option>
-                    <option value="12" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 12) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 12) ? "selected" : " ") ?>>12</option>
-                </select>
+                    <select class="form-select m-auto" style="width: 8rem;" name="totalArticles">
+                        <option selected disabled>Choix</option>
+                        <option value="6" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 6) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 6) ? "selected" : " ") ?>>6</option>
+                        <option value="9" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 9) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 9) ? "selected" : " ") ?>>9</option>
+                        <option value="12" <?= (isset($_POST["totalArticles"]) && $_POST["totalArticles"] == 12) ? "selected" : ((isset($_COOKIE["totalArticles"]) && $_COOKIE["totalArticles"] == 12) ? "selected" : " ") ?>>12</option>
+                    </select>
 
-                <div>
-                    <input value="1" id="checkbox1" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(1, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[1]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[1]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[1]) ? "checked" : "") ?>>
-                    <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
-                </div>
-                <div>
-                    <input value="2" id="checkbox2" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(2, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[2]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[2]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[2]) ? "checked" : "") ?>>
-                    <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
-                </div>
-                <div>
-                    <input value="3" id="checkbox3" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(3, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[3]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[3]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[3]) ? "checked" : "") ?>>
-                    <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
-                </div>
-                <div>
-                    <input value="4" id="checkbox4" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(4, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[4]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[4]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[4]) ? "checked" : "") ?>>
-                    <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
-                </div>
-                <div>
-                    <input value="5" id="checkbox5" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(5, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[5]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[5]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[5]) ? "checked" : "") ?>>
-                    <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
-                </div>
-                <div class="button">
-                    <button type="submit" class="btn btn-dark bg-dark" value="Validation" name="validation">Validation</button>
-                </div>
-            </form>
-        </div>
-        <div>
-            <p class="text-center mb-5 pb-5"><?= $error ?? "" ?></p>
+                    <div>
+                        <input value="1" id="checkbox1" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(1, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[1]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[1]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[1]) ? "checked" : "") ?>>
+                        <label for="checkbox1" class="pt-3">Smartphone <i class="bi bi-phone"></i></label>
+                    </div>
+                    <div>
+                        <input value="2" id="checkbox2" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(2, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[2]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[2]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[2]) ? "checked" : "") ?>>
+                        <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
+                    </div>
+                    <div>
+                        <input value="3" id="checkbox3" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(3, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[3]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[3]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[3]) ? "checked" : "") ?>>
+                        <label for="checkbox3" class="pt-3">Pc portable <i class="bi bi-laptop"></i></label>
+                    </div>
+                    <div>
+                        <input value="4" id="checkbox4" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(4, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[4]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[4]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[4]) ? "checked" : "") ?>>
+                        <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
+                    </div>
+                    <div>
+                        <input value="5" id="checkbox5" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(5, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[5]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[5]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[5]) ? "checked" : "") ?>>
+                        <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
+                    </div>
+                    <div class="button">
+                        <button type="submit" class="btn btn-dark bg-dark" value="Validation" name="validation">Validation</button>
+                    </div>
+                </form>
+            </div>
+            <div>
+                <p class="text-center mb-5 pb-5"><?= $error ?? "" ?></p>
+            </div>
         </div>
     </div>
     <!-- Navbar -->
@@ -82,6 +84,9 @@ require_once "../controllers/parameters-controller.php";
                             <a class="navbar-brand" href="#">Menu</a>
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        <div class="list-inline-item">
+                            <a class="nav-link active" href="parameters.php"><i class="bi bi-gear"></i></a>
+                        </div>
                     </div>
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
@@ -95,16 +100,13 @@ require_once "../controllers/parameters-controller.php";
                                 <a class="nav-link active" aria-current="page" href="home.php">Actualité</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
-                            </li>
-                            <li class="nav-item">
-                                <a class="nav-link active" href="parameters.php">Paramétres</a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                             </li>
                         </ul>
                     </div>
@@ -113,21 +115,23 @@ require_once "../controllers/parameters-controller.php";
         </nav>
     </div>
     <!-- End Navbar -->
+
     <!-- Navbar mobile -->
-    <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
-        <div class="container-fluid d-flex justify-content-between">
-            <div class="d-flex justify-content-evenly align-items-center">
-                <a class="nav-link active" href="parameters.php"><i class="bi bi-tools sizeIcon"></i></a>
-                <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper sizeIcon"></i></i></a>
+    <div class="container m-0 p-0">
+        <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
+            <div class="container-fluid d-flex justify-content-between align-items-baseline">
+                <div class="d-flex justify-content-evenly">
+                    <a class="nav-link active" style="font-size: 1.5rem;" aria-current="page" href="home.php"><i class="bi bi-house"></i></a>
+                    <a class="nav-link active" style="font-size: 1.5rem;" href="parameters.php"><i class="bi bi-gear"></i></a>
+                </div>
+                <div class=" d-flex justify-content-evenly">
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                </div>
             </div>
-            <div class=" d-flex justify-content-evenly align-items-center">
-                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
-                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
-                <a class="navbar-brand sizeIcon" href="#"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
-            </div>
-        </div>
-        </div>
-    </nav>
+        </nav>
+    </div>
     <!-- End Navbar mobile -->
 
 

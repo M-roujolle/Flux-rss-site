@@ -26,11 +26,6 @@ require_once "../controllers/parameters-controller.php";
     <a class="navbar-brand text-center" href="home.php">Allnews</a>
     <!-- Navbar -->
     <div class="container m-0 p-0">
-        <div class="form-check form-switch ms-auto d-none">
-            <label class="form-check-label ms-3" for="lightSwitch">
-            </label>Dark Mode
-            <input class="form-check-input" type="checkbox" id="lightSwitch" />
-        </div>
         <nav class="navbar navbar-dark bg-dark fixed-top d-none d-lg-block">
             <div class="container justify-content-between my-0 p-0">
                 <a class="navbar-brand" href="home.php"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Allnews</a>
@@ -40,9 +35,18 @@ require_once "../controllers/parameters-controller.php";
                             <a class="navbar-brand" href="#">Menu</a>
                             <span class="navbar-toggler-icon"></span>
                         </button>
+                        <div class="list-inline-item">
+                            <a class="nav-link active" href="parameters.php"><i class="bi bi-gear"></i></a>
+                        </div>
                     </div>
+
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="form-check form-switch ms-auto mt-5 me-3 d-none">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                        </label>Dark Mode
+                        <input class="form-check-input" type="checkbox" id="lightSwitch" />
+                    </div>
                     <div class="offcanvas-header">
                         <h5 class="navbar-brand" id="offcanvasNavbarLabel">Menu</h5>
                         <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -53,16 +57,16 @@ require_once "../controllers/parameters-controller.php";
                                 <a class="nav-link active" aria-current="page" href="home.php">Actualité</a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" href="parameters.php">Paramètres</a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux1"]) ? $fluxName[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux2"]) ? $fluxName[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                                <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                             </li>
                             <li class="nav-item">
-                                <a class="nav-link active" value="Validation" name="validation"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                                <a class="nav-link active" href="parameters.php">Paramétres</a>
                             </li>
                         </ul>
                     </div>
@@ -76,7 +80,7 @@ require_once "../controllers/parameters-controller.php";
         <h1 class="text-center title1 mt-5">Actualité</h1>
     </div>
     <div class="container d-flex justify-content-center my-0 py-0">
-
+        <!-- CAROUSEL -->
         <div id="carouselExampleControls" class="carousel slide w-75 d-none d-lg-block" da ta-bs-ride=" carousel">
             <div class="carousel-inner">
                 <div class="carousel-item active">
@@ -99,12 +103,15 @@ require_once "../controllers/parameters-controller.php";
             </button>
         </div>
     </div>
+    <!-- END CAROUSEL -->
+
+
     <div class="container my-3 pb-5">
         <div class="d-flex row justify-content-between m-0 p-0">
-
+            <!-- FLUX1 -->
             <?php foreach ($rss_load1->channel->item as $item) {
                 if ($articles1 < $maxArticle) { ?>
-                    <div class="card mb-3" style="max-width: 100rem;">
+                    <div class="card mb-3" style="max-width: 200rem;">
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
@@ -112,8 +119,31 @@ require_once "../controllers/parameters-controller.php";
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                                    <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                    <p class="card-text align-text-bottom"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                    <button type="button" class="btn btn-light border border-dark" data-bs-toggle="modal" data-bs-target="#flux">Lire l'article</button>
+                                    <!-- Modal -->
+
+                                    <div class="article modal fade" id="flux" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered modal-lg" role="document">
+
+                                            <div class="border border-ligth text-light bg-dark modal-content">
+                                                <div class="modal-body text-light">
+                                                    <div class="col ">
+                                                        <h2 class="card-title"><?= $item->title . "<br>"; ?></h2>
+                                                        <h3 class="p-5 text-center card-text"><?= $item->description . "<br>"; ?></h3>
+                                                        <p class="p-5 card-text align-text-bottom"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-light border-dark" data-bs-toggle="modal" data-bs-target="#flux">
+                                                        Fermer
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
@@ -121,7 +151,7 @@ require_once "../controllers/parameters-controller.php";
             <?php $articles1++;
                 };
             } ?>
-
+            <!-- END FLUX1 -->
 
             <?php foreach ($rss_load2->channel->item as $item) {
                 if ($articles2 < $maxArticle) { ?>
@@ -133,8 +163,29 @@ require_once "../controllers/parameters-controller.php";
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
                                     <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                    <button type="button" class="btn btn-light border border-dark" data-bs-toggle="modal" data-bs-target="#flux2">Lire l'article</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="flux2" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="border border-ligth text-light bg-dark modal-content">
+                                                <div class="modal-body text-light">
+                                                    <div class="col ">
+                                                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                                                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                                                        <p class="card-text align-text-bottom"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-light border-dark" data-bs-toggle="modal" data-bs-target="#flux2">
+                                                        Fermer
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
@@ -153,8 +204,29 @@ require_once "../controllers/parameters-controller.php";
                             <div class="col-md-8">
                                 <div class="card-body">
                                     <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
-                                    <p class="card-text"><?= $item->description . "<br>"; ?></p>
-                                    <p class="card-text"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                    <p class="card-text align-text-bottom"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                    <button type="button" class="btn btn-light border border-dark" data-bs-toggle="modal" data-bs-target="#flux3">Lire l'article</button>
+                                    <!-- Modal -->
+                                    <div class="modal fade" id="flux3" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                        <div class="modal-dialog modal-dialog-centered" role="document">
+                                            <div class="border border-ligth text-light bg-dark modal-content">
+                                                <div class="modal-body text-light">
+                                                    <div class="col ">
+                                                        <h5 class="card-title"><?= $item->title . "<br>"; ?></h5>
+                                                        <p class="card-text"><?= $item->description . "<br>"; ?></p>
+                                                        <p class="card-text align-text-bottom"><?= utf8_encode(strftime("%A %d %B %G, %H:%M", strtotime($item->pubDate)))  . "<br>"; ?></p>
+                                                    </div>
+                                                </div>
+                                                <div class="modal-footer">
+
+                                                    <button type="button" class="btn btn-light border-dark" data-bs-toggle="modal" data-bs-target="#flux3">
+                                                        Fermer
+                                                    </button>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <!-- Modal -->
                                 </div>
                             </div>
                         </div>
@@ -169,22 +241,21 @@ require_once "../controllers/parameters-controller.php";
     <!-- Navbar mobile -->
     <div class="container m-0 p-0">
         <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
-            <div class="container-fluid d-flex justify-content-between">
-                <div class="d-flex justify-content-evenly align-items-center">
-                    <a class="nav-link active" href="parameters.php"><i class="bi bi-tools sizeIcon"></i></a>
-                    <a class="nav-link active" aria-current="page" href="home.php"><i class="bi bi-newspaper sizeIcon"></i></i></a>
+            <div class="container-fluid d-flex justify-content-between align-items-baseline">
+                <div class="d-flex justify-content-evenly">
+                    <a class="nav-link active" style="font-size: 1.5rem;" aria-current="page" href="home.php"><i class="bi bi-house"></i></a>
+                    <a class="nav-link active" style="font-size: 1.5rem;" href="parameters.php"><i class="bi bi-gear"></i></a>
                 </div>
-                <div class=" d-flex justify-content-evenly align-items-center">
-                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
-                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
-                    <a class="navbar-brand sizeIcon" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                <div class=" d-flex justify-content-evenly">
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                    <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                 </div>
             </div>
-
         </nav>
     </div>
-    </div>
     <!-- End Navbar mobile -->
+
 
     <!-- Footer -->
     <footer class="bg-dark d-none d-lg-block">
