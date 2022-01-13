@@ -1,11 +1,9 @@
 <?php
 
+require_once "../controllers/home-controller.php";
 require_once "../controllers/parameters-controller.php";
 
 ?>
-
-<!DOCTYPE html>
-<html lang="fr">
 
 <head>
     <meta charset="UTF-8">
@@ -49,7 +47,7 @@ require_once "../controllers/parameters-controller.php";
                     </div>
                     <div>
                         <input value="2" id="checkbox2" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(2, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[2]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[2]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[2]) ? "checked" : "") ?>>
-                        <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-fill"></i></i></label>
+                        <label for="checkbox2" class="pt-3">Tablette <i class="bi bi-tablet-landscape"></i></label>
                     </div>
                     <div>
                         <input value="3" id="checkbox3" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(3, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[3]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[3]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[3]) ? "checked" : "") ?>>
@@ -57,11 +55,11 @@ require_once "../controllers/parameters-controller.php";
                     </div>
                     <div>
                         <input value="4" id="checkbox4" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(4, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[4]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[4]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[4]) ? "checked" : "") ?>>
-                        <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-image"></i></label>
+                        <label for="checkbox4" class="pt-3">Photo <i class="bi bi-file-earmark-image"></i></label>
                     </div>
                     <div>
                         <input value="5" id="checkbox5" type="checkbox" name="checkbox[]" <?= (isset($_POST["checkbox"]) && count($_POST["checkbox"]) == 3 && in_array(5, $_POST["checkbox"])) ? "checked" : ((isset($_COOKIE["flux1"]) && $_COOKIE["flux1"] == $choice[5]) || (isset($_COOKIE["flux2"]) && $_COOKIE["flux2"] == $choice[5]) || (isset($_COOKIE["flux3"]) && $_COOKIE["flux3"] == $choice[5]) ? "checked" : "") ?>>
-                        <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-video"></i></label>
+                        <label for="checkbox5" class="pt-3">Vidéo <i class="bi bi-camera-reels"></i></label>
                     </div>
                     <div class="button">
                         <button type="submit" class="btn btn-dark bg-dark" value="Validation" name="validation">Validation</button>
@@ -88,8 +86,14 @@ require_once "../controllers/parameters-controller.php";
                             <a class="nav-link active" href="parameters.php"><i class="bi bi-gear"></i></a>
                         </div>
                     </div>
+
                 </div>
                 <div class="offcanvas offcanvas-end bg-dark" tabindex="-1" id="offcanvasNavbar" aria-labelledby="offcanvasNavbarLabel">
+                    <div class="form-check form-switch ms-auto mt-5 me-3 d-none">
+                        <label class="form-check-label ms-3" for="lightSwitch">
+                        </label>Dark Mode
+                        <input class="form-check-input" type="checkbox" id="lightSwitch" />
+                    </div>
                     <div class="offcanvas-header">
                         <h5 class="navbar-brand" id="offcanvasNavbarLabel">Menu</h5>
                         <button type="button" class="btn-close btn-close-white text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
@@ -108,6 +112,9 @@ require_once "../controllers/parameters-controller.php";
                             <li class="nav-item">
                                 <a class="nav-link active" value="Validation" name="validation" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxName[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
                             </li>
+                            <li class="nav-item">
+                                <a class="nav-link active" href="parameters.php">Paramétres</a>
+                            </li>
                         </ul>
                     </div>
                 </div>
@@ -115,7 +122,6 @@ require_once "../controllers/parameters-controller.php";
         </nav>
     </div>
     <!-- End Navbar -->
-
     <!-- Navbar mobile -->
     <div class="container m-0 p-0">
         <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
@@ -133,8 +139,6 @@ require_once "../controllers/parameters-controller.php";
         </nav>
     </div>
     <!-- End Navbar mobile -->
-
-
 
 
     <!-- Footer -->
