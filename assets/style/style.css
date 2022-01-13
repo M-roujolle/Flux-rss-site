@@ -13,6 +13,36 @@ body {
     height: 100%;
 }
 
+.borderSmartphone {
+    height: 4px;
+    width: 100%;
+    background: red;
+}
+
+.borderTablet {
+    height: 4px;
+    width: 100%;
+    background: yellow;
+}
+
+.borderPc {
+    height: 4px;
+    width: 100%;
+    background: orange;
+}
+
+.borderPhoto {
+    height: 4px;
+    width: 100%;
+    background: green;
+}
+
+.borderVideo {
+    height: 4px;
+    width: 100%;
+    background: orchid;
+}
+
 .sizeIcon {
     font-size: 1.5rem;
 }

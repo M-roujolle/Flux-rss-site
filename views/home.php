@@ -112,6 +112,7 @@ require_once "../controllers/parameters-controller.php";
             foreach ($rss_load1->channel->item as $item) {
                 if ($articles1 < $maxArticle) { ?>
                     <div class="card mb-3" style="max-width: 200rem;">
+                        <span class="<?= $fluxColor[array_search($_COOKIE["flux1"], $choice)] ?>"></span>
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
@@ -155,6 +156,7 @@ require_once "../controllers/parameters-controller.php";
             <?php foreach ($rss_load2->channel->item as $item) {
                 if ($articles2 < $maxArticle) { ?>
                     <div class="card mb-3" style="max-width: 200rem;">
+                        <span class="<?= $fluxColor[array_search($_COOKIE["flux2"], $choice)] ?>"></span>
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
@@ -197,6 +199,7 @@ require_once "../controllers/parameters-controller.php";
             <?php foreach ($rss_load3->channel->item as $item) {
                 if ($articles3 < $maxArticle) { ?>
                     <div class="card mb-3" style="max-width: 200rem;">
+                        <span class="<?= $fluxColor[array_search($_COOKIE["flux3"], $choice)] ?>"></span>
                         <div class="row g-0">
                             <div class="col-md-4">
                                 <img src="<?= $item->enclosure->attributes() ?>" class="card-img-top h-auto" alt="...">
@@ -235,45 +238,46 @@ require_once "../controllers/parameters-controller.php";
                     $nb++;
                 };
             } ?>
+        </div>
 
-
-            <!-- Navbar mobile -->
-            <div class="container m-0 p-0">
-                <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
-                    <div class="container-fluid d-flex justify-content-between align-items-baseline">
-                        <div class="d-flex justify-content-evenly">
-                            <a class="nav-link active" style="font-size: 1.5rem;" aria-current="page" href="home.php"><i class="bi bi-house"></i></a>
-                            <a class="nav-link active" style="font-size: 1.5rem;" href="parameters.php"><i class="bi bi-gear"></i></a>
-                        </div>
-                        <div class=" d-flex justify-content-evenly">
-                            <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
-                            <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
-                            <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
-                        </div>
+        <!-- Navbar mobile -->
+        <div class="container m-0 p-0">
+            <nav class="navbar navbar-dark bg-dark fixed-bottom  d-lg-none d-block m-0 p-0" style="height: 3rem;">
+                <div class="container-fluid d-flex justify-content-between align-items-baseline">
+                    <div class="d-flex justify-content-evenly">
+                        <a class="nav-link active" style="font-size: 1.5rem;" aria-current="page" href="home.php"><i class="bi bi-house"></i></a>
+                        <a class="nav-link active" style="font-size: 1.5rem;" href="parameters.php"><i class="bi bi-gear"></i></a>
                     </div>
-                </nav>
-            </div>
-            <!-- End Navbar mobile -->
-
-
-            <!-- Footer -->
-            <footer class="bg-dark d-none d-lg-block">
-                <div class="list-inline text-center">
-                    <p class="list-inline-item">Accueil</p>
-                    <p class="list-inline-item">Politique de confidentialité</p>
+                    <div class=" d-flex justify-content-evenly">
+                        <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux1"]) ? "pages.php?flux=" . array_search($_COOKIE["flux1"], $choice) : "" ?>"><?= isset($_COOKIE["flux1"]) ? $fluxMobile[array_search($_COOKIE["flux1"], $choice)] : "" ?></a>
+                        <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux2"]) ? "pages.php?flux=" . array_search($_COOKIE["flux2"], $choice) : "" ?>"><?= isset($_COOKIE["flux2"]) ? $fluxMobile[array_search($_COOKIE["flux2"], $choice)] : "" ?></a>
+                        <a class="navbar-brand sizeIcon" style="font-size: 1rem;" href="<?= isset($_COOKIE["flux3"]) ? "pages.php?flux=" . array_search($_COOKIE["flux3"], $choice) : "" ?>"><?= isset($_COOKIE["flux3"]) ? $fluxMobile[array_search($_COOKIE["flux3"], $choice)] : "" ?></a>
+                    </div>
                 </div>
-                <p class="text-center"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company Allnews© 2021</p>
-            </footer>
-            <!-- Footer end -->
-            <script src="../assets/script/script.js"></script>
-            <script src="../assets/script/switch.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
-            <!-- Footer script -->
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-            <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
-            <!-- Bootstrap -->
-            <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
-            </script>
+            </nav>
+
+            <!-- End Navbar mobile -->
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-dark d-none d-lg-block">
+        <div class="list-inline text-center">
+            <p class="list-inline-item">Accueil</p>
+            <p class="list-inline-item">Politique de confidentialité</p>
+        </div>
+        <p class="text-center"><img src="../assets/img/logo.png" class="img-fluid rounded imgLogo" alt="logo">Company Allnews© 2021</p>
+    </footer>
+    <!-- Footer end -->
+    <script src="../assets/script/script.js"></script>
+    <script src="../assets/script/switch.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js"></script>
+    <!-- Footer script -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/js/bootstrap.bundle.min.js"></script>
+    <!-- Bootstrap -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous">
+    </script>
 
 </body>
 

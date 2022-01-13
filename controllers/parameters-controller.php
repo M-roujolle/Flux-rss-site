@@ -6,6 +6,13 @@ $choice = [
     4 => "https://www.01net.com/rss/photo/",
     5 => "https://www.01net.com/rss/tv-video/"
 ];
+$fluxColor = [
+    1 => 'borderSmartphone',
+    2 => 'borderTablet',
+    3 => 'borderPc',
+    4 => 'borderPhoto',
+    5 => 'borderVideo',
+];
 $fluxName = [
     1 => "Smartphone",
     2 => "Tablette",
