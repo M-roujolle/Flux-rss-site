@@ -1,9 +1,4 @@
-body {
-    background-color: #6868ab;
-}
-
 .mainbox {
-    background-color: #6868ab;
     margin: auto;
     height: 600px;
     width: 600px;
@@ -11,7 +6,6 @@ body {
 }
 
 .err {
-    color: #ffffff;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 11rem;
     position: absolute;
@@ -24,11 +18,9 @@ body {
     font-size: 8.5rem;
     left: 42%;
     top: 15%;
-    color: #ffffff;
 }
 
 .err2 {
-    color: #ffffff;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 11rem;
     position: absolute;

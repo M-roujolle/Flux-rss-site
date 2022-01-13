@@ -1,6 +1,8 @@
 body {
-    width: 100%;
+    margin: 0;
+    padding: 0;
     display: flex;
+    width: 100%;
     flex-direction: column;
     justify-content: space-between;
     font-family: 'Roboto Slab', serif;
@@ -11,14 +13,48 @@ body {
     height: 100%;
 }
 
+.borderSmartphone {
+    height: 4px;
+    width: 100%;
+    background: red;
+}
+
+.borderTablet {
+    height: 4px;
+    width: 100%;
+    background: yellow;
+}
+
+.borderPc {
+    height: 4px;
+    width: 100%;
+    background: orange;
+}
+
+.borderPhoto {
+    height: 4px;
+    width: 100%;
+    background: green;
+}
+
+.borderVideo {
+    height: 4px;
+    width: 100%;
+    background: orchid;
+}
+
+.sizeIcon {
+    font-size: 1.5rem;
+}
+
 body:before {
     content: "";
     position: fixed;
     height: 100%;
     width: 100%;
     background-image:
-        linear-gradient(rgba(104, 104, 171, 0.8),
-            rgba(104, 104, 171, 0.9));
+        linear-gradient(rgba(162, 162, 180, 0.1),
+            rgba(162, 162, 180, 0.3));
     background-size: cover;
     z-index: -1;
     /* Keep the background behind the content */
@@ -39,6 +75,7 @@ footer {
     width: 100%;
     left: 0;
     bottom: 0;
+    margin-bottom: 0;
     margin-top: 5rem;
 }
 
@@ -67,7 +104,7 @@ footer {
     background-color: #ffffffa1;
 }
 
-.bg-navbar {
+.bg-bg-light {
     background-color: #6868ab;
 }
 
@@ -77,4 +114,27 @@ footer {
         flex-direction: column;
         padding-top: 1rem;
     }
+}
+
+@media (min-width: 1200px) {
+    .modal-xlg {
+        width: 90%;
+
+    }
+}
+
+.modal-dialog,
+.modal-content {
+    /* 80% of window height */
+    height: 80%;
+}
+
+.modal-body {
+    /* 100% = dialog height, 120px = header + footer */
+    max-height: calc(100% - 120px);
+    overflow-y: scroll;
+}
+
+.article {
+    font-size: x-large;
 }
